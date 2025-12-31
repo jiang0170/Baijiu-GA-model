@@ -1,0 +1,45 @@
+
+1. INITIALIZATION
+   - Import libraries: numpy, pandas, sko.GA, multiprocessing
+   
+2. OBJECTIVE FUNCTION DEFINITION
+   - Function obj_func(x, X, y):
+     * Compute least squares: 0.5*(y - X·x)²
+     * Add penalty for using solutions 1,2,6,7 (encouraging minimal use)
+     * Return combined objective
+   
+3. OPTIMIZATION FUNCTION
+   - Function optimize(X, y):
+     * Define constraint: sum(x) = 1 (proportions must sum to 1)
+     * Configure GA parameters:
+       - 7 dimensions
+       - Population: 100
+       - Max iterations: 200
+       - Bounds: [0.01, 1] for each dimension
+       - Equality constraint
+     * Run GA
+     * Return best solution and objective value
+   
+4. SIMILARITY CALCULATION
+   - Function similarity(solution1, solution2):
+     * Compute Euclidean distance
+     * Convert to similarity percentage
+   
+5. MAIN EXECUTION
+   - Load CSV data
+   - Extract target (y = "C1") and features (X)
+   - Create multiprocessing pool (4 processes)
+   
+   FOR 50 iterations:
+     - Run optimization in parallel
+     
+   - Collect all results
+   - Identify best solution (lowest objective value)
+   - Calculate similarity between predictions and target
+   
+6. OUTPUT
+   - Print best solution (rounded to 2 decimals)
+   - Print best objective value
+   - Print average similarity across runs
+   - Print similarity of best solution to target
+   - Adjust solution if sum ≠ 1 (normalize)

@@ -1,0 +1,47 @@
+
+
+1. INITIALIZATION
+   - Import required libraries: matplotlib, numpy, pandas, sklearn models, catboost
+   - Set global font to Times New Roman, font size 12
+   
+2. DATA LOADING & PREPROCESSING
+   - Read Excel dataset from specified path
+   - Extract features (X: all columns except first) and labels (y: first column)
+   - Handle missing values using mean imputation
+   - Split data: 70% training, 30% testing (stratified by y)
+   
+3. MODEL DEFINITION & TRAINING
+   - Initialize 5 classifiers:
+     * Random Forest
+     * Gradient Boosting
+     * Logistic Regression
+     * CatBoost
+     * K-Nearest Neighbors (KNN)
+   - Train each model on training data
+   
+4. MODEL EVALUATION
+   FOR EACH MODEL:
+     - Generate predictions on test data
+     - Calculate metrics:
+       * Recall (weighted average)
+       * F1 Score (weighted average)
+       * Accuracy
+       * Precision (weighted average)
+     - Print metrics
+   
+5. VISUALIZATION
+   FOR EACH MODEL:
+     - Generate confusion matrix
+       * Display as heatmap with percentages
+       * Label classes as 1-7
+       * Add count and percentage annotations
+     
+     - Generate ROC curves (multiclass)
+       * Binarize labels for each class
+       * Calculate ROC curve and AUC for each class
+       * Plot all ROC curves on one graph
+       * Add AUC values in legend
+       
+6. OUTPUT
+   - All metrics printed to console
+   - Confusion matrix and ROC curve plots displayed

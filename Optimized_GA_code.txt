@@ -1,0 +1,50 @@
+1. INITIALIZATION
+   - Import libraries: numpy, pandas, sko.GA, multiprocessing
+   
+2. ENHANCED OBJECTIVE FUNCTION
+   - Function obj_func(x, X, y):
+     * Compute target value: X·x
+     * Calculate least squares loss: 0.5*Σ(y - target)²
+     * Add penalty for using solutions 1,2,6,7 above 0.2
+     * Add encouragement for using solutions 3,4,5
+     * Return combined objective
+   
+3. OPTIMIZATION FUNCTION WITH VALIDATION
+   - Function optimize(X, y):
+     * Find valid indices where y values are within X's min/max ranges
+     * IF no valid indices: raise error
+     * Define constraint: sum(x) = 1
+     * Configure GA with improved parameters:
+       - 7 dimensions
+       - Population: 50
+       - Max iterations: 500
+       - Tighter bounds: [0.03, 0.3]
+       - Equality constraint
+     * Run GA
+     * Return best solution and objective value
+   
+4. SIMILARITY CALCULATION
+   - Function similarity(solution1, solution2):
+     * Compute Euclidean distance
+     * Convert to similarity percentage
+   
+5. UNCERTAINTY ADDITION FUNCTION
+   - Function add_uncertainty_to_solution(x):
+     * Add random fluctuations (-0.01 to +0.01) to each dimension
+     * Clip values to [0.01, 0.3] range
+     * Normalize to ensure sum = 1
+   
+6. MAIN EXECUTION
+   - Load CSV data
+   - Extract target (y = "C1") and features (X)
+   - Create multiprocessing pool (4 processes)
+   
+   FOR 50 iterations:
+     - Run optimization in parallel
+     
+   - Collect all results
+   - Identify best solution (lowest objective value)
+   - Add uncertainty to best solution
+   
+7. OUTPUT
+   - Print estimated proportions for each round (with uncertainty)

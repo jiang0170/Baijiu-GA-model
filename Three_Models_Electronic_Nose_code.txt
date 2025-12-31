@@ -1,0 +1,50 @@
+1. INITIALIZATION
+   - Import libraries: matplotlib, pandas, sklearn ensemble/linear models, numpy
+   - Set global font to Times New Roman, font size 12
+   
+2. DATA LOADING & PREPROCESSING
+   - Read Excel dataset ('test.xlsx')
+   - Extract features (first 8 columns) and labels (9th column)
+   - Split data: 80% training, 20% testing
+   
+3. MODEL DEFINITION
+   - Three models:
+     * Gradient Boosting Classifier
+     * Random Forest Classifier
+     * Logistic Regression (max iterations: 1000)
+   
+4. TRAINING & EVALUATION
+   FOR EACH MODEL:
+     - Train on training data
+     - Predict on test data
+     - Calculate metrics:
+       * Accuracy
+       * Recall (weighted)
+       * F1 Score (weighted)
+       * Precision (weighted)
+     - Store metrics in results dictionary
+   
+5. VISUALIZATION
+   FOR EACH MODEL:
+     - IF model supports probability predictions:
+       * Generate ROC curves (multiclass):
+         - Calculate ROC for each class (1-7)
+         - Plot all ROC curves
+         - Display AUC values
+     
+     - Generate confusion matrix:
+       * Display as heatmap with percentages
+       * Label classes as 1-7
+       * Add count and percentage annotations
+   
+6. PREDICTION ON NEW DATA
+   - Load new dataset ('1.xlsx')
+   - Extract features (first 8 columns)
+   - FOR EACH MODEL:
+     * Predict using trained model
+     * Print predictions
+   
+7. OUTPUT
+   - Print metrics for all three models
+   - Display ROC curves (where applicable) and confusion matrices
+   - Print predictions on new data for each model

@@ -1,2 +1,2 @@
 # Baijiu-GA-model
-Jiangxiang Xing Baijiu 
+Jiangxiangxing  Baijiu 
